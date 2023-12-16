@@ -1,94 +1,33 @@
-import { Account } from '../components/Account'
-import { Balance } from '../components/Balance'
-import { BlockNumber } from '../components/BlockNumber'
 import { ConnectButton } from '../components/ConnectButton'
 import { Connected } from '../components/Connected'
-import { NetworkSwitcher } from '../components/NetworkSwitcher'
-import { ReadContract } from '../components/ReadContract'
-import { ReadContracts } from '../components/ReadContracts'
-import { ReadContractsInfinite } from '../components/ReadContractsInfinite'
-import { SendTransaction } from '../components/SendTransaction'
-import { SendTransactionPrepared } from '../components/SendTransactionPrepared'
-import { SignMessage } from '../components/SignMessage'
-import { SignTypedData } from '../components/SignTypedData'
 import { Token } from '../components/Token'
-import { WatchContractEvents } from '../components/WatchContractEvents'
-import { WatchPendingTransactions } from '../components/WatchPendingTransactions'
-import { WriteContract } from '../components/WriteContract'
-import { WriteContractPrepared } from '../components/WriteContractPrepared'
-
+import { SwapValue } from '../components/SwapValue'
 export function Page() {
   return (
     <>
-      <h1>wagmi + RainbowKit + Next.js</h1>
-
-      <ConnectButton />
-
+    <div className='bg-blue-900'>
+      <h1 className='font-[20px] font-bold text-center'>Td Swap de Louis Stoven</h1>
+      <div className="flex justify-center items-center mt-[50px]">
+        <div className="display-flex">
+          <ConnectButton />
+        </div>
+        
+      </div>
       <Connected>
-        <hr />
-        <h2>Network</h2>
-        <NetworkSwitcher />
-        <br />
-        <hr />
-        <h2>Account</h2>
-        <Account />
-        <br />
-        <hr />
-        <h2>Balance</h2>
-        <Balance />
-        <br />
-        <hr />
-        <h2>Block Number</h2>
-        <BlockNumber />
-        <br />
-        <hr />
-        <h2>Read Contract</h2>
-        <ReadContract />
-        <br />
-        <hr />
-        <h2>Read Contracts</h2>
-        <ReadContracts />
-        <br />
-        <hr />
-        <h2>Read Contracts Infinite</h2>
-        <ReadContractsInfinite />
-        <br />
-        <hr />
-        <h2>Send Transaction</h2>
-        <SendTransaction />
-        <br />
-        <hr />
-        <h2>Send Transaction (Prepared)</h2>
-        <SendTransactionPrepared />
-        <br />
-        <hr />
-        <h2>Sign Message</h2>
-        <SignMessage />
-        <br />
-        <hr />
-        <h2>Sign Typed Data</h2>
-        <SignTypedData />
-        <br />
-        <hr />
-        <h2>Token</h2>
+      <hr />
+        <h1 className="text-center font-[7px]">
+          Swap ETH / SC1 : 
+        </h1>
+        <h2 className="text-center font-[5px]">
+          données via chainlink oracle
+        </h2>
         <Token />
         <br />
-        <hr />
-        <h2>Watch Contract Events</h2>
-        <WatchContractEvents />
-        <br />
-        <hr />
-        <h2>Watch Pending Transactions</h2>
-        <WatchPendingTransactions />
-        <br />
-        <hr />
-        <h2>Write Contract</h2>
-        <WriteContract />
-        <br />
-        <hr />
-        <h2>Write Contract (Prepared)</h2>
-        <WriteContractPrepared />
-      </Connected>
+
+        <h2 className="text-center font-[7px]">Swap : </h2>
+        <SwapValue/>
+        <hr />      </Connected>
+        </div>
     </>
   )
 }
