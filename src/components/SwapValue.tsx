@@ -72,7 +72,7 @@ const SwapPrice = () => {
   return (
     <>
       {price !== null ? (
-        <div className="flex justify-center">
+        <div className="flex justify-center font-family">
           <div className="my-4 mx-auto lg:mx-16 lg:w-auto border border-green-900">
             <div className="flex flex-col p-2 text-green-900">
               <div>
