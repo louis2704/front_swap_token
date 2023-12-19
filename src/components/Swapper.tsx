@@ -8,25 +8,25 @@ import { marketPlaceContract, SC1Contract, TK2Contract } from './contracts';
 function Swap() {
     type contracttype = typeof SC1Contract | typeof TK2Contract;
 
-    const [tokenFrom, setTokenFrom] = useState('ETH');
+    const [tokenFrom, setTokenFrom] = useState('TK2');
     const [amountFrom, setAmountFrom] = useState(0);
     const [isSwapped, setIsSwapped] = useState(false);
     const [tokenContract, setTokenContract] = useState<contracttype>(TK2Contract);
-    const [swapFunctionName, setSwapFunctionName] = useState<'swapTok2ForTok1' | 'swapTok1ForTok2'>('swapTok2ForTok1');
+    const [swap, setSwap] = useState<'swapTok2ForTok1' | 'swapTok1ForTok2'>('swapTok2ForTok1');
   
     useEffect(() => {
-      if (tokenFrom === 'ETH') {
+      if (tokenFrom === 'TK2') {
         setTokenContract(TK2Contract);
-        setSwapFunctionName('swapTok2ForTok1');
+        setSwap('swapTok2ForTok1');
       } else {
         setTokenContract(SC1Contract);
-        setSwapFunctionName('swapTok1ForTok2');
+        setSwap('swapTok1ForTok2');
       }
     }, [tokenFrom]);
   
     const { write: writeSwap, data: swapData, isLoading: swapIsLoading, isError: swapIsError } = useContractWrite({
       ...marketPlaceContract,
-      functionName: swapFunctionName,
+      functionName: swap,
     });
   
     const { data: receiptSwap, isLoading: isPendingSwap, isSuccess: isSuccessSwap } = useWaitForTransaction({ hash: swapData?.hash });
@@ -77,7 +77,7 @@ function Swap() {
             </button>
           </div>
           <div className='pb-4'>
-            {isSwapped ? 'Swap successful! Please refetch your balance to see the result.' : ''}
+            {isSwapped ? 'Swap done ! Please refresh the page !' : ''}
           </div>
         </div>
       </div>
