@@ -51,6 +51,8 @@ const SwapPrice = () => {
 
         if (response.data && response.data.data && response.data.data.pair) {
           const lastSwap = response.data.data.swaps[0];
+          const reserve0 = parseFloat(response.data.data.pair.reserve0)
+          const reserve1 = parseFloat(response.data.data.pair.reserve1)
           const totalReserve = response.data.data.pair.reserve0 + response.data.data.pair.reserve1;
 
           const price = (lastSwap.amount1Out / lastSwap.amount0In) * totalReserve;
